@@ -16,7 +16,6 @@ namespace vaktija.xamarin.ViewModels
             Title = "Danas";
             Takvim = new Takvim();
             Dan = Takvim.Danas;
-            Console.WriteLine(Dan.AksamS);
             Task.Run(PokreniVaktijuAsync);
         }
 
@@ -55,7 +54,7 @@ namespace vaktija.xamarin.ViewModels
                     {
                         Dan = Takvim.Danas;
                         Danas = new Danas();
-                        Console.WriteLine(Dan.AksamS);
+                        
                         //var glavniSat = FindViewById<TextView>(Resource.Id.GlavniSat);
                         //glavniSat.Text = DateTime.Now.ToString("T");
                         //Console.WriteLine($"glavni sat:{glavniSat.Text}");

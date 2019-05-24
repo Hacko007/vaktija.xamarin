@@ -28,7 +28,6 @@ namespace vaktija.xamarin.Models
         public TimeSpan Podne { get; set; }
         public TimeSpan Ikindija { get; set; }
         public TimeSpan Aksam { get; set; }
-        public string AksamS => Aksam.ToString("hh\\:mm");
         public TimeSpan Jacija { get; set; }
     }
 }
