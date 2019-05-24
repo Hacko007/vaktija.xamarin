@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:vaktija.xamarin.ViewModels;assembly=vaktija.xamarin"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:Class="vaktija.xamarin.Views.DanasPage"
+             
+>
+    <ContentPage.BindingContext>
+        <viewModels:DanasViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Label Text="Datum"/>
+            <Label Text="{Binding Danas.Datum}" FontSize="Bold" />
+
+            <Label Text="{Binding Dan.Aksam, StringFormat='{0:hh\\:mm}'}"/>
+            <Label Text="Ovo je DANAS!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace vaktija.xamarin.Models
+﻿namespace vaktija.xamarin.Models
 {
     public class Item
     {

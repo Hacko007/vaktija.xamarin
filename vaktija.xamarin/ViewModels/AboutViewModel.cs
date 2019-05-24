@@ -9,7 +9,7 @@ namespace vaktija.xamarin.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = "IZ Geteborg";
 
             OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
         }

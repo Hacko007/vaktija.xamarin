@@ -17,7 +17,7 @@ namespace vaktija.xamarin.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Danas";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
