@@ -7,7 +7,6 @@ namespace vaktija.xamarin.Models
     {
         private CultureInfo ArabCultureInfo { get; set; }
         private CultureInfo BihCultureInfo { get; set; }
-
         public string Datum { get; set; }
         public string DatumHidzretski { get; set; }
         public string DrzavniPraznik { get; set; }
@@ -42,6 +41,5 @@ namespace vaktija.xamarin.Models
         {
             DatumHidzretski = DateTime.Today.ToString("D", ArabCultureInfo);
         }
-
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace vaktija.xamarin.Models
 {
@@ -16,12 +18,14 @@ namespace vaktija.xamarin.Models
                 Ikindija = new TimeSpan(ikindijah, ikindijam, 0);
                 Aksam = new TimeSpan(aksamh, aksamm, 0);
                 Jacija = new TimeSpan(jacijah, jacijam, 0);
+                Sat = DateTime.Now;
             }
             catch (ArgumentOutOfRangeException)
             {
             }
         }
 
+        public DateTime Sat { get; set; }
         public DateTime Datum { get; set; }
         public TimeSpan Zora { get; set; }
         public TimeSpan Sabah { get; set; }
@@ -29,5 +33,33 @@ namespace vaktija.xamarin.Models
         public TimeSpan Ikindija { get; set; }
         public TimeSpan Aksam { get; set; }
         public TimeSpan Jacija { get; set; }
+        private TimeSpan Ponoc => new TimeSpan(23,59,59);
+
+
+        public ObservableCollection<Vakat> GetVremenaZaDanas()
+        {
+            var result=new List<Vakat>()
+            {
+                new Vakat(){Naziv = "Zora", Vrijeme = Zora, StilVremena = GetStil(Zora,Sabah)},
+                new Vakat(){Naziv = "Sabah", Vrijeme = Sabah, StilVremena = GetStil(Sabah,Podne)},
+                new Vakat(){Naziv = "Podne", Vrijeme = Podne, StilVremena = GetStil(Podne,Ikindija)},
+                new Vakat(){Naziv = "Ikindija", Vrijeme = Ikindija, StilVremena = GetStil(Ikindija,Aksam)},
+                new Vakat(){Naziv = "Akšam", Vrijeme = Aksam, StilVremena = GetStil(Aksam,Jacija)},
+                new Vakat(){Naziv = "Jacija", Vrijeme = Jacija, StilVremena = GetStil(Jacija, Ponoc)}
+            };
+
+            return new ObservableCollection<Vakat>(result);
+        }
+
+        private StilVremena GetStil(TimeSpan pocetak,TimeSpan kraj)
+        {
+            if(pocetak > Sat.TimeOfDay )
+                return StilVremena.Standard;
+
+            if (pocetak <= Sat.TimeOfDay && Sat.TimeOfDay < kraj)
+                return StilVremena.VakatJe;
+
+            return StilVremena.ProsaoVakat;
+        }
     }
 }
