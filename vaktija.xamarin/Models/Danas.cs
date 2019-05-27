@@ -9,15 +9,11 @@ namespace vaktija.xamarin.Models
         private CultureInfo BihCultureInfo { get; set; }
         public string Datum { get; set; }
         public string DatumHidzretski { get; set; }
-        public string DrzavniPraznik { get; set; }
-        public string HidzretskiPraznik { get; set; }
 
         public Danas()
         {
             Datum = "";
             DatumHidzretski = "";
-            DrzavniPraznik = "";
-            HidzretskiPraznik = "";
             ArabCultureInfo = new CultureInfo("ar-SA");
             BihCultureInfo = new CultureInfo("bs-Latn-BA");
             SetDatum();
