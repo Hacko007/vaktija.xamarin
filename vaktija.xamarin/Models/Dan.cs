@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using Xamarin.Forms;
 
 namespace vaktija.xamarin.Models
 {
@@ -27,6 +29,8 @@ namespace vaktija.xamarin.Models
 
         public DateTime Sat { get; set; }
         public DateTime Datum { get; set; }
+        public string NazivDana => Datum.ToString("ddd", new CultureInfo("bs-Latn-BA"));
+        public string DatumHidzretski => Datum.ToString("dd", new CultureInfo("ar-SA"));
         public TimeSpan Zora { get; set; }
         public TimeSpan Sabah { get; set; }
         public TimeSpan Podne { get; set; }
@@ -35,6 +39,10 @@ namespace vaktija.xamarin.Models
         public TimeSpan Jacija { get; set; }
         private TimeSpan Ponoc => new TimeSpan(23,59,59);
 
+        public FontAttributes IsDzuma =>
+            Datum.DayOfWeek == DayOfWeek.Friday ? FontAttributes.Bold : FontAttributes.None;
+
+        public Color DzumaBackground => Datum.DayOfWeek == DayOfWeek.Friday ? Color.DarkKhaki : Color.Transparent;
 
         public ObservableCollection<Vakat> GetVremenaZaDanas()
         {

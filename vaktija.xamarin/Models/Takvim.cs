@@ -26,9 +26,9 @@ namespace vaktija.xamarin.Models
             select praznik.Opis).FirstOrDefault();
 
 
-        private List<Praznik> Praznici { get; }
+        public List<Praznik> Praznici { get; }
 
-        private List<Dan> Vremena { get; }
+        public List<Dan> Vremena { get; }
 
         public static List<Praznik> GetSviPraznici()
         {

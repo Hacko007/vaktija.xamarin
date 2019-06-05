@@ -9,6 +9,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
+
+            <!-- Font Sizes -->
+            <Style TargetType="Label" x:Key="Naslovi">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="10,20,10,0"/>
+            </Style>
+
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
